@@ -1,7 +1,7 @@
-import { prisma } from '../config/prisma.js';
-import { comparePassword } from '../utils/password.js';
-import { generateToken } from '../utils/jwt.js';
-import { UnauthorizedError } from '../utils/errors.js';
+import { prisma } from '../../config/prisma.js';
+import { comparePassword } from '../../utils/password.js';
+import { generateToken } from '../../utils/jwt.js';
+import { UnauthorizedError } from '../../utils/errors.js';
 
 export interface LoginInput {
   email: string;

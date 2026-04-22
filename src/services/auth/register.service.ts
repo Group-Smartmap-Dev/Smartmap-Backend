@@ -1,11 +1,11 @@
-import { prisma } from '../config/prisma.js';
-import { hashPassword } from '../utils/password.js';
-import { ConflictError, BadRequestError } from '../utils/errors.js';
+import { prisma } from '../../config/prisma.js';
+import { hashPassword } from '../../utils/password.js';
+import { ConflictError, BadRequestError } from '../../utils/errors.js';
 import {
   validateEmail,
   validatePassword,
   validateCompanyName,
-} from '../utils/validators.js';
+} from '../../utils/validators.js';
 
 export interface RegisterInput {
   name: string;
