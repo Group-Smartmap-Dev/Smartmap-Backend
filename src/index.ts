@@ -7,6 +7,7 @@ import { corsMiddleware } from './middlewares/cors.js';
 import { errorHandler } from './middlewares/errorHandler.js';
 import healthRoutes from './routes/health.js';
 import authRoutes from './routes/auth.routes.js';
+import userRoutes from './routes/user.routes.js';
 import propertyRoutes from './routes/property.routes.js';
 
 const app = express();
@@ -32,6 +33,7 @@ app.get('/api-docs', swaggerUi.setup(swaggerSpec, { swaggerOptions: { persistAut
 // Routes
 app.use('/api/health', healthRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/users', userRoutes);
 app.use('/api/properties', propertyRoutes);
 
 // 404 handler

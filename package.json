@@ -2,10 +2,26 @@
   "name": "realestate-map-api",
   "version": "1.0.0",
   "description": "Scalable real estate platform backend with map-centric design",
-  "main": "dist/index.js",
+  "keywords": [
+    "real-estate",
+    "map",
+    "b2b",
+    "scalable"
+  ],
+  "homepage": "https://github.com/Group-Smartmap-Dev/SMARTMAP#readme",
+  "bugs": {
+    "url": "https://github.com/Group-Smartmap-Dev/SMARTMAP/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Group-Smartmap-Dev/SMARTMAP.git"
+  },
+  "license": "MIT",
+  "author": "",
   "type": "module",
+  "main": "dist/index.js",
   "scripts": {
-    "dev": "node --loader tsx src/index.ts",
+    "dev": "node --import tsx src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
     "prisma:migrate": "prisma migrate dev",
@@ -14,14 +30,6 @@
     "lint": "eslint src --ext .ts",
     "format": "prettier --write \"src/**/*.ts\""
   },
-  "keywords": [
-    "real-estate",
-    "map",
-    "b2b",
-    "scalable"
-  ],
-  "author": "",
-  "license": "MIT",
   "dependencies": {
     "@prisma/client": "^5.7.1",
     "bcryptjs": "^2.4.3",
@@ -29,7 +37,7 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "express-async-errors": "^3.1.1",
-    "jsonwebtoken": "^9.1.2",
+    "jsonwebtoken": "^9.0.2",
     "multer": "^1.4.5-lts.1",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.0"
@@ -41,6 +49,7 @@
     "@types/multer": "^1.4.11",
     "@types/node": "^20.10.6",
     "@types/swagger-ui-express": "^4.1.6",
+    "@types/swagger-jsdoc": "^6.0.0",
     "@typescript-eslint/eslint-plugin": "^6.17.0",
     "@typescript-eslint/parser": "^6.17.0",
     "eslint": "^8.56.0",

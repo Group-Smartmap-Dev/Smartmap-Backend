@@ -45,6 +45,19 @@ const options = {
             updatedAt: { type: 'string', format: 'date-time' },
           },
         },
+        User: {
+          type: 'object',
+          properties: {
+            id: { type: 'string', example: 'cuid789' },
+            name: { type: 'string', example: 'John Doe' },
+            email: { type: 'string', format: 'email', example: 'john@company.com' },
+            phone: { type: 'string', nullable: true, example: '+1234567890' },
+            role: { type: 'string', enum: ['agent', 'manager', 'admin'], example: 'agent' },
+            companyId: { type: 'string', example: 'cuid123' },
+            createdAt: { type: 'string', format: 'date-time' },
+            updatedAt: { type: 'string', format: 'date-time' },
+          },
+        },
         Property: {
           type: 'object',
           properties: {
@@ -84,6 +97,7 @@ const options = {
   apis: [
     `${__dirname}/../routes/health.ts`,
     `${__dirname}/../routes/auth.routes.ts`,
+    `${__dirname}/../routes/user.routes.ts`,
     `${__dirname}/../routes/property.routes.ts`,
   ],
 };

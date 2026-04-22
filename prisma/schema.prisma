@@ -17,10 +17,27 @@ model Company {
   password  String
   phone     String?
   whatsapp  String?
+  users     User[]
   properties Property[]
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
 
+  @@index([email])
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  role      String   @default("agent")
+  company   Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  companyId String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([email, companyId])
+  @@index([companyId])
   @@index([email])
 }
 

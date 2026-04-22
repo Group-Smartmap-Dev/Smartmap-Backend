@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { createPropertyController } from '../../controllers/property/createProperty.controller.js';
-import { authMiddleware } from '../../middlewares/auth.js';
+import { createPropertyController } from '../controllers/property/createProperty.controller.js';
+import { authMiddleware } from '../middlewares/auth.js';
 
 /**
  * @swagger
