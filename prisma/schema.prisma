@@ -1,0 +1,50 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Company {
+  id        String     @id @default(cuid())
+  name      String     @unique
+  email     String     @unique
+  password  String
+  phone     String?
+  whatsapp  String?
+  properties Property[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  @@index([email])
+}
+
+enum PropertyStatus {
+  AVAILABLE
+  NEGOTIATING
+  SOLD
+}
+
+model Property {
+  id          String         @id @default(cuid())
+  title       String
+  description String?
+  latitude    Float
+  longitude   Float
+  status      PropertyStatus @default(AVAILABLE)
+  contactPhone    String?
+  contactWhatsApp String?
+  company     Company        @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  companyId   String
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  @@index([companyId])
+  @@index([status])
+  @@index([latitude, longitude])
+}
